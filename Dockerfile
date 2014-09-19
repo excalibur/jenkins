@@ -42,9 +42,9 @@ RUN \
 # Define working directory.
 WORKDIR /root
 
-# Define default command.
-ENTRYPOINT ["java", "-jar", "/opt/jenkins.war"]
-
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
+
+# Define default command.
+ENTRYPOINT ["/usr/bin/java", "-Djava.awt.headless=true", "-jar", "/usr/share/jenkins/jenkins.war", "--webroot=/var/cache/jenkins/war"]
+

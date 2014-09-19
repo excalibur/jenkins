@@ -26,7 +26,7 @@ Jenkins 作为一个持续集成工具，Jenkins以开源，强大的插件而�
 	
 ### 或者自定义构建
 	
-	docker build -t fightteam/jenkins github.com/excalibur/integration-jenkins
+	docker build -t fightteam/jenkins github.com/excalibur/jenkins
 
 ### 或者简单的获取镜像
 
