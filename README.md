@@ -62,7 +62,7 @@ Jenkins 作为一个持续集成工具，Jenkins以开源，强大的插件而�
  * scm-api.hpi
  * postbuild-task.hpi
 
-安装方式，进
+安装方式，进入对应的plugins目录，如:`/tmp/jenkins/plugins`进行获取插件，然后重启Jenkins
 
 	wget --no-check-certificate http://updates.jenkins-ci.org/latest/cobertura.hpi && \
 	wget --no-check-certificate http://updates.jenkins-ci.org/latest/hipchat.hpi && \
