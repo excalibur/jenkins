@@ -8,9 +8,9 @@ MAINTAINER lzy7750015@gmail.com
 
 # Upadte base image
 RUN \
-  cd /usr/share/jenkins && \
-  rm -f jenkins.war && \
-  wget --no-check-certificate http://ftp-chi.osuosl.org/pub/jenkins/war/1.580/jenkins.war
+  cd /usr/share/jenkins
+
+ADD http://ftp-chi.osuosl.org/pub/jenkins/war/1.580/jenkins.war /usr/share/jenkins/
 
 # Install plugins
 RUN \
