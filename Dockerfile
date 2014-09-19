@@ -49,5 +49,5 @@ WORKDIR /root
 EXPOSE 8080
 
 # Define default command.
-ENTRYPOINT ["/usr/local/bin/supervisord", " -n"]
+ENTRYPOINT ["/usr/local/bin/supervisord"]
 
