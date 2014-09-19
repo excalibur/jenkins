@@ -39,6 +39,9 @@ RUN \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/token-macro.hpi) && \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/build-name-setter.hpi) 
 
+RUN /usr/bin/easy_install supervisor
+ADD ./supervisord.conf /etc/supervisord.conf
+
 # Define working directory.
 WORKDIR /root
 
@@ -46,5 +49,5 @@ WORKDIR /root
 EXPOSE 8080
 
 # Define default command.
-ENTRYPOINT ["/usr/bin/java", "-Djava.awt.headless=true", "-jar", "/usr/share/jenkins/jenkins.war", "--webroot=/var/cache/jenkins/war"]
+ENTRYPOINT ["/usr/local/bin/supervisord", " -n"]
 
