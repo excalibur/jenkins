@@ -39,6 +39,7 @@ RUN \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/token-macro.hpi) && \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/build-name-setter.hpi) 
 
+# Supervisor Config
 RUN /usr/bin/easy_install supervisor
 ADD ./supervisord.conf /etc/supervisord.conf
 
@@ -49,5 +50,5 @@ WORKDIR /root
 EXPOSE 8080
 
 # Define default command.
-ENTRYPOINT ["/usr/local/bin/supervisord"]
+ENTRYPOINT /usr/local/bin/supervisord
 
