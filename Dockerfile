@@ -2,17 +2,16 @@
 # nebula Dockerfile
 #
 
-FROM dockerfile/ubuntu
+FROM jenkins
 
 MAINTAINER lzy7750015@gmail.com
 
 # Upadte base image
 RUN \
-  echo "deb http://pkg.jenkins-ci.org/debian binary/" > /etc/apt/sources.list.d/jenkins.list && \
-  wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - && \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y python-setuptools jenkins
- 
+  cd /usr/share/jenkins && \
+  rm -f jenkins.war && \
+  wget --no-check-certificate http://ftp-chi.osuosl.org/pub/jenkins/war/1.580/jenkins.war
+
 # Install plugins
 RUN \
 	mkdir -p /var/lib/jenkins/plugins && \
@@ -38,17 +37,4 @@ RUN \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi) && \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/token-macro.hpi) && \
 	(cd /var/lib/jenkins/plugins && wget --no-check-certificate http://updates.jenkins-ci.org/latest/build-name-setter.hpi) 
-
-# Supervisor Config
-RUN /usr/bin/easy_install supervisor
-ADD ./supervisord.conf /etc/supervisord.conf
-
-# Define working directory.
-WORKDIR /root
-
-# Expose ports.
-EXPOSE 8080
-
-# Define default command.
-ENTRYPOINT /usr/local/bin/supervisord -n
 
