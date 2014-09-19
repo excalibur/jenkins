@@ -11,7 +11,7 @@ RUN \
   echo "deb http://pkg.jenkins-ci.org/debian binary/" > /etc/apt/sources.list.d/jenkins.list && \
   wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add - && \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y jenkins
+  DEBIAN_FRONTEND=noninteractive apt-get install -y python-setuptools jenkins
  
 # Install plugins
 RUN \
