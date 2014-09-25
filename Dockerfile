@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER lzy7750015@gmail.com
 
-RUN echo "1.580" > .lts-version-number
+RUN echo "1.581" > .lts-version-number
 
 RUN apt-get update && apt-get install -y wget git curl zip
 RUN apt-get update && apt-get install -y --no-install-recommends openjdk-7-jdk
