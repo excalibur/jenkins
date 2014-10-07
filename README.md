@@ -64,9 +64,9 @@ Jenkins 作为一个持续集成工具，Jenkins以开源，强大的插件而�
 
 因为权限问题，使用你最好使用：
 
-	docker run -it --rm --link sleepy_morse:sleepy_morse -v /tmp/jenkins:/var/jenkins_home excalibur/jenkins bash
+	docker run -it --rm --link myjenkins:myjenkins -v /tmp/jenkins:/var/jenkins_home excalibur/jenkins bash
 
-`sleepy_morse`请换成你对应的容器名称。然后进入`/var/jenkins_home`进行下载插件。
+`myjenkins`请换成你对应的容器名称。然后进入`/var/jenkins_home`进行下载插件。
 
 安装方式，进入对应的plugins目录，如:`/tmp/jenkins/plugins`进行获取插件，然后重启Jenkins
 
