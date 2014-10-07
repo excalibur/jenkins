@@ -62,7 +62,7 @@ Jenkins 作为一个持续集成工具，Jenkins以开源，强大的插件而�
  * scm-api.hpi
  * postbuild-task.hpi
 
-因为权限问题，使用你最好使用：
+因为权限问题(对应的权限gid102)，使用你最好使用：
 
 	docker run -it --rm --link myjenkins:myjenkins -v /tmp/jenkins:/var/jenkins_home excalibur/jenkins bash
 
@@ -92,3 +92,5 @@ Jenkins 作为一个持续集成工具，Jenkins以开源，强大的插件而�
 	wget --no-check-certificate http://updates.jenkins-ci.org/latest/parameterized-trigger.hpi && \
 	wget --no-check-certificate http://updates.jenkins-ci.org/latest/token-macro.hpi && \
 	wget --no-check-certificate http://updates.jenkins-ci.org/latest/build-name-setter.hpi 
+
+大部分使用和[https://github.com/cloudbees/jenkins-ci.org-docker](https://github.com/cloudbees/jenkins-ci.org-docker)相同。
